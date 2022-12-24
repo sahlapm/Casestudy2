@@ -1,5 +1,4 @@
 
-
 // Task1: initiate app and run server at 3000
 const express=require('express');
 const bodyparser=require('body-parser');
@@ -11,11 +10,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extented:false}));
 app.use(express.static(path.join(__dirname+'/dist/FrontEnd')));
 
-app.listen(3000,()=>
-{
-    console.log("Server listening to port 3000");
-}
-)
+
 // Task2: create mongoDB connection 
 
 const mongoose=require('mongoose');
@@ -110,6 +105,12 @@ catch(err)
     res.status(400).json({message:err.message});
 }
 })
+//Running server at port 3000
+app.listen(3000,()=>
+{
+    console.log("Server listening to port 3000");
+}
+)
 
 //! dont delete this code. it connects the front end file.
 app.get('/*', function (req, res) {
